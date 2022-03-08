@@ -34,7 +34,7 @@ public class EnemyHealth : HealthSystem
 
     protected override void Die()
     {
-        spawner.DoTHING();
+        spawner.Spawn();
         Destroy(gameObject);
         manager.UpdateEnemyInfo();
     }
