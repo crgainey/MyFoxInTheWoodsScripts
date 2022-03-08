@@ -17,11 +17,9 @@ public class PassiveEnemy : EnemyPathMovementt
 
     IEnumerator FindPlayer()
     {
-        //Debug.Log("Passive StartCO");
         //If player is in radius start chase else Patrol
         if (Vector2.Distance(transform.position, player.position) <= radius)
         {
-            //Debug.Log("Player in radius");
             isChaseing = true;
             StopCoroutine(Chase());
             StartCoroutine(Chase());
@@ -31,7 +29,6 @@ public class PassiveEnemy : EnemyPathMovementt
         {
 
             racoonAnim.SetBool("isAngry", true);
-            //Debug.Log("agrro");
         }
         
         else

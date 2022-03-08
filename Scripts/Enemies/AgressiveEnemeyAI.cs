@@ -20,13 +20,11 @@ public class AgressiveEnemeyAI : EnemyPathMovementt
 
     IEnumerator FindPlayer()
     {
-        //Debug.Log("aggressive StartCO");
         yield return new WaitForSeconds(4f);
 
         //If player is in radius start chase else Patrol
         if (Vector2.Distance(transform.position, player.position) <= radius)
         {
-            //Debug.Log("Player in radius");
             isChaseing = true;
             StopCoroutine(Chase());
             StartCoroutine(Chase());

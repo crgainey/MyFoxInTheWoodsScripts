@@ -21,7 +21,6 @@ public class PathGrid : MonoBehaviour
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
 
-		//StartCoroutine(CreateGrid());
 		CreateGrid();
 	}
 
@@ -34,7 +33,6 @@ public class PathGrid : MonoBehaviour
 	}
 	void CreateGrid()
 	{
-		//yield return new WaitForSeconds(.5f);
 		grid = new Node[gridSizeX, gridSizeY];
 		Vector2 worldBottomLeft = (Vector2)transform.position - Vector2.right * gridWorldSize.x / 2 - Vector2.up * gridWorldSize.y / 2;
 

@@ -14,9 +14,6 @@ public class StealingEnemy : EnemyPathMovementt
 
     IEnumerator StartUpdate()
     {
-       // Debug.Log("Stealy StartCO");
-        //GameObject foodPickup = GameObject.FindGameObjectWithTag("Pickup");
-
         //if player approches will go to runaway function
         if (Vector2.Distance(transform.position, player.position) <= radius)
         {

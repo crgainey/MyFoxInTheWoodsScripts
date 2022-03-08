@@ -34,7 +34,6 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        //enemyAnim = GameObject.FindGameObjectWithTag("EnemyAnim").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().transform;
         playerScr = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         anchor = GameObject.FindGameObjectWithTag("Anchor").GetComponent<Rigidbody2D>();
@@ -42,7 +41,6 @@ public class CharacterController : MonoBehaviour
         cam = Camera.main;
 
         lr.enabled = false;
-        //lr.useWorldSpace = true;
 
         GameObject playerMove = GameObject.FindWithTag("Player");
         if (playerMove != null)
@@ -132,8 +130,6 @@ public class CharacterController : MonoBehaviour
 
         Vector3 inverseMousePos = new Vector3(Screen.width - Input.mousePosition.x, Screen.height - Input.mousePosition.y, Input.mousePosition.z);
         var lineMousePos = cam.ScreenToWorldPoint(inverseMousePos);
-        //Vector3 lineopp = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x +1, Input.mousePosition.y +1, Input.mousePosition.z));
-        //Debug.DrawLine(rb.position, lineMousePos, Color.white, 2.5f);
 
         Vector3[] positions = new Vector3[3];
         positions[0] = rb.position;
@@ -160,27 +156,9 @@ public class CharacterController : MonoBehaviour
         damage = 2f;
     }
 
-    //THIS IS GARBAGE NEEDS TO BE FIXED
-    void AutoAttack()
-    {
-        enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
-        transform.position = enemy.position;
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //if(playerScript.playerHit == true)
-        //{
-        //    if (other.CompareTag("Enemy"))
-        //    {
-        //        //Debug.Log("Bird Enemy Hit");
-        //        anim.SetBool("isHit", true);
-        //        GameObject.FindGameObjectWithTag("EnemyAnim").GetComponent<Animator>().SetBool("isHit", true);
-        //        StartCoroutine(EndAnimation());
-        //        other.GetComponent<EnemyHealth>().TakeDamage(damage);
-        //        //AutoAttack();
-        //    }
-        //}
 
         if (isPressed == true)
         {
@@ -205,9 +183,7 @@ public class CharacterController : MonoBehaviour
 
     IEnumerator EndAnimation()
     {
-        //Debug.Log("Ending Anim");
         yield return new WaitForSeconds(1f);
-        //GameObject.FindGameObjectWithTag("EnemyAnim").GetComponent<Animator>().SetBool("isHit", false);
         anim.SetBool("isHit", false);
     }
 

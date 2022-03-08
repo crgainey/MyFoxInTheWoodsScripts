@@ -33,7 +33,6 @@ public class EnemyPathMovementt : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         cc = GameObject.FindGameObjectWithTag("Character").GetComponent<CharacterController>();
         spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-        //foodObj = GameObject.FindGameObjectWithTag("Pickup");
     }
 
     protected virtual void Start()
@@ -43,7 +42,6 @@ public class EnemyPathMovementt : MonoBehaviour
 
     public void ReStartMain()
     {
-        //Debug.Log("Restartmain called");
         _waitTime = startWaitTime;
         randomWaypoint = Random.Range(0, waypoints.Length);
 
@@ -60,7 +58,6 @@ public class EnemyPathMovementt : MonoBehaviour
 
     void Update()
     {
-        //StartCoroutine(StartUpdate());
         if (Vector2.Distance(transform.position, player.position) <= 50)
         {
             //stops patrol if true
@@ -91,28 +88,6 @@ public class EnemyPathMovementt : MonoBehaviour
         }
     }
 
-    //public IEnumerator Patrol()
-    //{
-    //    //Debug.Log("Patrol");
-
-    //    if (_waitTime <= 0)
-    //    {
-    //        anim.SetBool("isRunning", false);
-    //        randomWaypoint = Random.Range(0, waypoints.Length);
-    //        _waitTime = startWaitTime;
-    //    }
-    //    else
-    //    {
-    //        _waitTime -= Time.deltaTime;
-    //    }
-
-    //    path = Pathfinding.RequestPath(transform.position, waypoints[randomWaypoint].position);
-    //    StartCoroutine("FollowPath");
-    //    StopCoroutine("FollowPath");
-
-    //    yield return new WaitForSeconds(.25f);
-    //}
-
     //if we hit end of path the refresh and call FollowPath again
     public IEnumerator Chase()
     {
@@ -130,7 +105,6 @@ public class EnemyPathMovementt : MonoBehaviour
                 StartCoroutine("FollowPath");
                 anim.SetBool("isRunning", true);
             }
-            //Debug.Log("CHASING");
             yield return new WaitForSeconds(1f);
         }
         
@@ -150,7 +124,6 @@ public class EnemyPathMovementt : MonoBehaviour
                 StartCoroutine("FollowPath");
 
                 anim.SetBool("isRunning", true);
-                //Debug.Log("RUNAWAY");
                 isChaseing = true;
             }
             yield return new WaitForSeconds(10f);
@@ -217,7 +190,6 @@ public class EnemyPathMovementt : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Enemy Did Damage");
             other.GetComponent<Player>().TakeDamage(damage);
             
         }
@@ -245,9 +217,7 @@ public class EnemyPathMovementt : MonoBehaviour
     }
     IEnumerator EndAnimation()
     {
-        //Debug.Log("Ending Anim");
         yield return new WaitForSeconds(1f);
-        //GameObject.FindGameObjectWithTag("EnemyAnim").GetComponent<Animator>().SetBool("isHit", false);
         anim.SetBool("isHit", false);
     }
 
@@ -259,7 +229,6 @@ public class EnemyPathMovementt : MonoBehaviour
             for (int i = targetIndex; i < path.Length; i++)
             {
                 Gizmos.color = Color.black;
-                //Gizmos.DrawCube((Vector3)path[i], Vector3.one *.5f);
 
                 if (i == targetIndex)
                 {

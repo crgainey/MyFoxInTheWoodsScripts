@@ -18,7 +18,6 @@ public class EnemyHealth : HealthSystem
     public override void TakeDamage(float dmgAmount)
     {
         health -= dmgAmount;
-        //Debug.Log("Enemy Health = " + health);
 
         if (health <= 0)
         {
@@ -38,9 +37,6 @@ public class EnemyHealth : HealthSystem
         spawner.DoTHING();
         Destroy(gameObject);
         manager.UpdateEnemyInfo();
-        //health = maxHealth;
-        //gameObject.SetActive(false);
-        //Debug.Log("Enemy Dies");
     }
 
 }

@@ -65,14 +65,12 @@ public class PlayerMovement : MonoBehaviour
         //So we can determine which was the player is facing
         if (posX > halfOfScreen)
         {
-            //Debug.Log("Right");
             anim.SetBool("isRunningRight", true);
             anim.SetBool("isRunningLeft", false);
             faceRight = true;
         }
         else
         {
-            //Debug.Log("Left");
             anim.SetBool("isRunningLeft", true);
             anim.SetBool("isRunningRight", false);
             faceRight = false;
@@ -107,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator EndAnimation()
     {
-        //Debug.Log("Ending Anim");
         yield return new WaitForSeconds(1f);
         anim.SetBool("isHit", false);
 

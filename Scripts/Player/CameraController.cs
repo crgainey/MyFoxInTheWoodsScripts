@@ -9,10 +9,6 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     private Vector3 velocity = Vector3.zero;
 
-    void Start()
-    {
-        //Cursor.lockState = CursorLockMode.Confined;
-    }
 
     void Update()
     {
